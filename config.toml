@@ -1,4 +1,22 @@
 baseURL = "https://pavelnikolov.net/"
 languageCode = "en-us"
 title = "Pavel Nikolov's blog"
-theme = "hemingway2"
+theme = "hugo-zen"
+canonifyURLs = true
+copyright = "2017 Pavel Nikolov. All rights reserved."
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  description = "Pavel Nikolov's blog"
+  author = "Pavel Nikolov"
+  logo      = "/images/pavel-nikolov.jpg"
+  twitter   = "https://twitter.com/pavelnikolov"
+  facebook  = "https://www.facebook.com/medunchoto"
+  github    = "https://github.com/pavelnikolov"
+
+[params.highlight]
+style = "github"
+languages = ["go", "dockerfile"]
