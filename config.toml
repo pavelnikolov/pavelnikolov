@@ -1,6 +1,7 @@
 baseURL = "https://pavelnikolov.net/"
 canonifyURLs = true
 copyright = "2017 Pavel Nikolov. All rights reserved."
+disqusShortname = "pavelnikolov"
 googleAnalytics = "UA-29424849-1"
 languageCode = "en-us"
 theme = "hugo-zen"
