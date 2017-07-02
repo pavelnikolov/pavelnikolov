@@ -1,0 +1,4 @@
+baseURL = "https://pavelnikolov.net/"
+languageCode = "en-us"
+title = "Pavel Nikolov's blog"
+theme = "hemingway2"
