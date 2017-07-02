@@ -1,10 +1,10 @@
 +++
-categories  = [ "blog" ]
 date        = "2012-10-31T11:27:27-04:00"
-description = "Hello World! | Pavel Nikolov's blog"
-slug        = "hello-world"
-tags        = [ "blog" ]
 title       = "Hello World"
+description = "Hello World! | Pavel Nikolov's blog"
+tags        = [ "blog" ]
+categories  = [ "blog" ]
+slug        = "hello-world"
 +++
 
 ## Why now?
