@@ -1,9 +1,10 @@
 baseURL = "https://pavelnikolov.net/"
-languageCode = "en-us"
-title = "Pavel Nikolov's blog"
-theme = "hugo-zen"
 canonifyURLs = true
 copyright = "2017 Pavel Nikolov. All rights reserved."
+googleAnalytics = "UA-29424849-1"
+languageCode = "en-us"
+theme = "hugo-zen"
+title = "Pavel Nikolov's blog"
 
 [taxonomies]
   category = "categories"
