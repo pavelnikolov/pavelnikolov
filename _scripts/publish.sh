@@ -26,6 +26,7 @@ echo "Generating site"
 hugo
 
 cp CNAME public/
+cp -r .well-known public/
 
 echo "Updating gh-pages branch"
 cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"

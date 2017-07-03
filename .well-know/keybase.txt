@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/nikolov
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://pavelnikolov.net
+  * I am nikolov (https://keybase.io/nikolov) on keybase.
+  * I have a public key ASCR52wVd6df0KHTYo8UNZQf27AawYZBElhdQlZgLgv2_go
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010178b78af92d528bcf6f011907788b6b282b4bff9387ada81428d6a8aeb333d9a40a",
+            "host": "keybase.io",
+            "kid": "012091e76c1577a75fd0a1d3628f1435941fdbb01ac1864112585d4256602e0bf6fe0a",
+            "uid": "4754ddf3e436fa4c57da68e83e40c519",
+            "username": "nikolov"
+        },
+        "merkle_root": {
+            "ctime": 1499087468,
+            "hash": "f5fcbcf34e3672749f5eb7316a0a2dccb960b09e4b8ad997690b9201950122bba94e64f78feb7e49e8296ce884ee87f43aa3eac4574aed0fa15ec9415088b6e9",
+            "hash_meta": "a62b8034c86e4d625ba446f5b173cc69e415c0f495a0dd4020682aa893c28fcd",
+            "seqno": 1207397
+        },
+        "service": {
+            "hostname": "pavelnikolov.net",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.24"
+    },
+    "ctime": 1499087589,
+    "expire_in": 504576000,
+    "prev": "ed083ba45395f980508b3a76456fc684ab45b40f9ff5d181828bed89ea7509ce",
+    "seqno": 10,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgkedsFXenX9Ch02KPFDWUH9uwGsGGQRJYXUJWYC4L9v4Kp3BheWxvYWTFA0h7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxNzhiNzhhZjkyZDUyOGJjZjZmMDExOTA3Nzg4YjZiMjgyYjRiZmY5Mzg3YWRhODE0MjhkNmE4YWViMzMzZDlhNDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwOTFlNzZjMTU3N2E3NWZkMGExZDM2MjhmMTQzNTk0MWZkYmIwMWFjMTg2NDExMjU4NWQ0MjU2NjAyZTBiZjZmZTBhIiwidWlkIjoiNDc1NGRkZjNlNDM2ZmE0YzU3ZGE2OGU4M2U0MGM1MTkiLCJ1c2VybmFtZSI6Im5pa29sb3YifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0OTkwODc0NjgsImhhc2giOiJmNWZjYmNmMzRlMzY3Mjc0OWY1ZWI3MzE2YTBhMmRjY2I5NjBiMDllNGI4YWQ5OTc2OTBiOTIwMTk1MDEyMmJiYTk0ZTY0Zjc4ZmViN2U0OWU4Mjk2Y2U4ODRlZTg3ZjQzYWEzZWFjNDU3NGFlZDBmYTE1ZWM5NDE1MDg4YjZlOSIsImhhc2hfbWV0YSI6ImE2MmI4MDM0Yzg2ZTRkNjI1YmE0NDZmNWIxNzNjYzY5ZTQxNWMwZjQ5NWEwZGQ0MDIwNjgyYWE4OTNjMjhmY2QiLCJzZXFubyI6MTIwNzM5N30sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJwYXZlbG5pa29sb3YubmV0IiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMjQifSwiY3RpbWUiOjE0OTkwODc1ODksImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiZWQwODNiYTQ1Mzk1Zjk4MDUwOGIzYTc2NDU2ZmM2ODRhYjQ1YjQwZjlmZjVkMTgxODI4YmVkODllYTc1MDljZSIsInNlcW5vIjoxMCwidGFnIjoic2lnbmF0dXJlIn2jc2lnxECyt+2DfqkNQMUsg/lElJw4exBEzpqlEc+tAGcMISy/pTqO4iUMAmYUOXZnInu0dqC53phOD3YHMAswmAc9jo8BqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQggMy3yG0YBttjxYlf/E4CEEZ1sXbLQf7YKjOw7qFwS4ejdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nikolov
+
+==================================================================
