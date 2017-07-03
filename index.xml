@@ -32,6 +32,16 @@ It all started early yesterday when me an my wife went to the hospital[1] about 
     </item>
     
     <item>
+      <title>About</title>
+      <link>https://pavelnikolov.net/about/</link>
+      <pubDate>Fri, 21 Jun 2013 11:27:27 -0400</pubDate>
+      
+      <guid>https://pavelnikolov.net/about/</guid>
+      <description>General Info My name is Pavel Nikolov, web developer, living in Sofia, Bulgaria, Sydney, Australia. I have more than 10 years of experience as a software engineer. I develop all kinds of web applications (e-commerce, social apps, in-house business applications, etc.), mobile applications, data pipelines, systems etc.
+I have done the corporate thing, the freelance thing and now I have my own web development consultancy firm. I work on interesting projects mostly e-commerce and small business websites.</description>
+    </item>
+    
+    <item>
       <title>Hello World</title>
       <link>https://pavelnikolov.net/2012/10/31/hello-world/</link>
       <pubDate>Wed, 31 Oct 2012 11:27:27 -0400</pubDate>
