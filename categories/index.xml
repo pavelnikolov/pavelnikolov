@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Pavel Nikolov&#39;s blog</title>
+    <link>https://pavelnikolov.net/categories/</link>
+    <description>Recent content in Categories on Pavel Nikolov&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>2017 Pavel Nikolov. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 31 Oct 2012 11:27:27 -0400</lastBuildDate><atom:link href="https://pavelnikolov.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blog</title>
+      <link>https://pavelnikolov.net/categories/blog/</link>
+      <pubDate>Wed, 31 Oct 2012 11:27:27 -0400</pubDate>
+      
+      <guid>https://pavelnikolov.net/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

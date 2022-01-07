@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Pavel Nikolov&#39;s blog</title>
+    <link>https://pavelnikolov.net/tags/</link>
+    <description>Recent content in Tags on Pavel Nikolov&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>2017 Pavel Nikolov. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 12 Apr 2014 10:12:23 +0200</lastBuildDate><atom:link href="https://pavelnikolov.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>event</title>
+      <link>https://pavelnikolov.net/tags/event/</link>
+      <pubDate>Sat, 12 Apr 2014 10:12:23 +0200</pubDate>
+      
+      <guid>https://pavelnikolov.net/tags/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>https://pavelnikolov.net/tags/personal/</link>
+      <pubDate>Sat, 12 Apr 2014 10:12:23 +0200</pubDate>
+      
+      <guid>https://pavelnikolov.net/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>other</title>
+      <link>https://pavelnikolov.net/tags/other/</link>
+      <pubDate>Mon, 10 Feb 2014 10:12:23 +0200</pubDate>
+      
+      <guid>https://pavelnikolov.net/tags/other/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://pavelnikolov.net/tags/blog/</link>
+      <pubDate>Wed, 31 Oct 2012 11:27:27 -0400</pubDate>
+      
+      <guid>https://pavelnikolov.net/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
