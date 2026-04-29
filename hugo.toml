@@ -1,0 +1,17 @@
+baseURL = 'https://pavelnikolov.net/'
+locale = 'en-us'
+title = 'Pavel Nikolov'
+enableRobotsTXT = true
+
+[params]
+	description = 'Personal website and blog of Pavel Nikolov.'
+
+[menu]
+	[[menu.main]]
+		name = 'Home'
+		pageRef = '/'
+		weight = 10
+	[[menu.main]]
+		name = 'Blog'
+		pageRef = '/blog'
+		weight = 20

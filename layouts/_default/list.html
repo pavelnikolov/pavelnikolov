@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="section-header reveal">
+  <p class="eyebrow">Section</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="section-intro">{{ . }}</div>{{ end }}
+</section>
+
+{{ if gt (len .Pages) 0 }}
+<section class="post-grid">
+  {{ range .Pages.ByDate.Reverse }}
+  <article class="post-card reveal">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+  </article>
+  {{ end }}
+</section>
+{{ else }}
+<p class="empty-state reveal">No posts yet.</p>
+{{ end }}
+{{ end }}
