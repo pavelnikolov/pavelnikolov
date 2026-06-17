@@ -19,18 +19,29 @@
 </section>
 
 <section id="talk-slides-view" class="reveal talk-reveal" tabindex="0">
+  <div id="talk-speaker-footer" class="talk-speaker-footer" hidden>
+    <span class="talk-speaker-name">Pavel Nikolov</span>
+    <span class="talk-speaker-role">Principal SRE, CBA</span>
+  </div>
   <div class="slides">
     {{ range $slideChunks }}
-    <section>
-      {{ $.RenderString (dict "display" "block") . }}
-    </section>
+      {{ $verticalSlides := split . "\n~~~~\n" }}
+      {{ if ge (len $verticalSlides) 2 }}
+        <section>
+          {{ range $verticalSlides }}
+          <section>
+            {{ $.RenderString (dict "display" "block") . }}
+          </section>
+          {{ end }}
+        </section>
+      {{ else }}
+        <section>
+          {{ $.RenderString (dict "display" "block") . }}
+        </section>
+      {{ end }}
     {{ end }}
   </div>
 </section>
-<div id="talk-speaker-footer" class="talk-speaker-footer" hidden>
-  <span class="talk-speaker-name">Pavel Nikolov</span>
-  <span class="talk-speaker-role">Principal SRE, CBA</span>
-</div>
 
 <article id="talk-reading-view" class="post talk-reading" hidden>
   <div class="content">{{ .Content }}</div>
@@ -65,8 +76,8 @@
     if (window.Reveal && slidesView) {
       deck = new window.Reveal(slidesView, revealOptions);
       await deck.initialize();
-      slidesView.querySelectorAll(".slides section li").forEach((item) => {
-        item.classList.add("fragment");
+      slidesView.querySelectorAll(".slides section li, .slides section p").forEach((item) => {
+        item.classList.add("fragment", "fade-in-then-semi-out");
       });
       applyCodeLineClasses();
       if (typeof deck.sync === "function") {
@@ -102,12 +113,10 @@
       });
     }
     const syncSpeakerFooter = () => {
-      if (!speakerFooter || !deck || !showingSlides || !initialized) {
-        if (speakerFooter) speakerFooter.hidden = true;
-        return;
-      }
+      if (!speakerFooter || !deck || !initialized) return;
       const { h, v } = deck.getIndices();
-      speakerFooter.hidden = !(h === 0 && v === 0);
+      const isFirstSlide = h === 0 && v === 0;
+      speakerFooter.hidden = !isFirstSlide;
     };
 
     const syncModeHash = (slidesMode) => {
