@@ -222,6 +222,129 @@ h1 {
   margin-bottom: 0.35rem;
 }
 
+.talk-meta {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: 0 12px 44px rgba(16, 34, 29, 0.07);
+  padding: clamp(1.25rem, 2vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+.talk-subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-top: -0.2rem;
+}
+
+.talk-mode-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.talk-help {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.talk-state {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.talk-help kbd {
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  padding: 0.05rem 0.35rem;
+  background: var(--surface);
+}
+
+.talk-mode-toggle .theme-toggle {
+  width: auto;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.6rem;
+}
+
+.talk-reveal {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 12px 44px rgba(16, 34, 29, 0.14);
+}
+
+.talk-reveal .slides {
+  text-align: left;
+}
+
+.talk-reading {
+  margin-top: 1rem;
+}
+
+.talk-reading .content {
+  max-width: 72ch;
+}
+
+.highlight pre code .code-line-muted {
+  opacity: 0.32;
+}
+
+.highlight pre code .code-line-highlighted {
+  opacity: 1;
+}
+
+.talk-card .talk-subtitle {
+  margin: 0.2rem 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+html[data-talk-mode="slides"] body {
+  background: #111;
+}
+
+html[data-talk-mode="slides"] .bg-glow,
+html[data-talk-mode="slides"] .site-header,
+html[data-talk-mode="slides"] .site-footer {
+  display: none;
+}
+
+html[data-talk-mode="slides"] main.container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+html[data-talk-mode="slides"] .talk-meta {
+  display: none;
+}
+
+html[data-talk-mode="slides"] .talk-mode-toggle .theme-toggle,
+html[data-talk-mode="slides"] .talk-help kbd {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+html[data-talk-mode="slides"] .talk-reveal {
+  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+html[data-talk-mode="reading"] body.reveal-viewport {
+  overflow: auto !important;
+  height: auto !important;
+}
+
 .meta {
   color: var(--muted);
   font-size: 0.9rem;
@@ -249,7 +372,7 @@ h1 {
   padding: 1.25rem 0 2rem;
 }
 
-.reveal {
+.reveal:not(.talk-reveal) {
   opacity: 0;
   transform: translateY(12px);
   animation: rise 480ms ease-out forwards;
