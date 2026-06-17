@@ -6,6 +6,10 @@ enableRobotsTXT = true
 [params]
 	description = 'Personal website and blog of Pavel Nikolov.'
 
+[markup]
+  [markup.highlight]
+    noClasses = false
+
 [menu]
 	[[menu.main]]
 		name = 'Home'
@@ -15,3 +19,7 @@ enableRobotsTXT = true
 		name = 'Blog'
 		pageRef = '/blog'
 		weight = 20
+	[[menu.main]]
+		name = 'Talks'
+		pageRef = '/talks'
+		weight = 30

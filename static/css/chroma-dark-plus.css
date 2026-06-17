@@ -1,0 +1,89 @@
+.highlight,
+.chroma {
+  color: #d4d4d4;
+  background: #1e1e1e;
+}
+
+.chroma .ln,
+.chroma .lnt {
+  color: #6e7681;
+}
+
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr,
+.chroma .kt,
+.chroma .ow {
+  color: #569cd6;
+}
+
+.chroma .nf,
+.chroma .fm {
+  color: #dcdcaa;
+}
+
+.chroma .nb {
+  color: #4ec9b0;
+}
+
+.chroma .nc,
+.chroma .nn,
+.chroma .nt {
+  color: #4ec9b0;
+}
+
+.chroma .s,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .s2,
+.chroma .se,
+.chroma .sh,
+.chroma .si,
+.chroma .sx,
+.chroma .sr,
+.chroma .s1,
+.chroma .ss {
+  color: #ce9178;
+}
+
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo {
+  color: #b5cea8;
+}
+
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1,
+.chroma .cs,
+.chroma .cp,
+.chroma .cpf {
+  color: #6a9955;
+}
+
+.chroma .o {
+  color: #d4d4d4;
+}
+
+.chroma .p {
+  color: #d4d4d4;
+}
+
+.chroma .err {
+  color: #f44747;
+}
+
+.chroma .hl {
+  background-color: #264f78;
+}

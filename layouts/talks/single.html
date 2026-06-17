@@ -1,0 +1,164 @@
+{{ define "main" }}
+{{ $slideChunks := split .RawContent "\n---\n" }}
+<section class="talk-meta">
+  <p class="eyebrow">Talk</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.subtitle }}<p class="talk-subtitle">{{ . }}</p>{{ end }}
+  <p class="meta">
+    {{ .Date.Format "January 2, 2006" }}
+    {{ with .Params.event }} · {{ . }}{{ end }}
+    {{ with .Params.location }} · {{ . }}{{ end }}
+    {{ with .Params.duration }} · {{ . }}{{ end }}
+  </p>
+  <div class="talk-mode-toggle">
+    <button type="button" class="theme-toggle" id="talk-present-button">Present</button>
+  </div>
+  <p class="talk-state"><strong>Mode:</strong> <span id="talk-mode-label">Slides</span></p>
+  <p id="talk-help" class="talk-help">Reading mode: scroll normally. Use Present to return to slides.</p>
+</section>
+
+<section id="talk-slides-view" class="reveal talk-reveal" tabindex="0">
+  <div class="slides">
+    {{ range $slideChunks }}
+    <section>
+      {{ $.RenderString (dict "display" "block") . }}
+    </section>
+    {{ end }}
+  </div>
+</section>
+
+<article id="talk-reading-view" class="post talk-reading" hidden>
+  <div class="content">{{ .Content }}</div>
+</article>
+
+<link rel="stylesheet" href="{{ "vendor/revealjs/reveal.css" | relURL }}">
+<link rel="stylesheet" href="{{ "vendor/revealjs/theme/black.css" | relURL }}" id="reveal-theme">
+<link rel="stylesheet" href="{{ "css/chroma-dark-plus.css" | relURL }}">
+<script src="{{ "vendor/revealjs/reveal.js" | relURL }}"></script>
+<script>
+  (async () => {
+    const slidesView = document.getElementById("talk-slides-view");
+    const readingView = document.getElementById("talk-reading-view");
+    const presentButton = document.getElementById("talk-present-button");
+    const help = document.getElementById("talk-help");
+    const modeLabel = document.getElementById("talk-mode-label");
+    const root = document.documentElement;
+    let showingSlides = true;
+    let deck = null;
+    let initialized = false;
+    const revealOptions = {
+      hash: true,
+      slideNumber: false,
+      controls: true,
+      progress: false,
+      keyboard: true,
+      center: true,
+      transition: "slide"
+    };
+
+    if (window.Reveal && slidesView) {
+      deck = new window.Reveal(slidesView, revealOptions);
+      await deck.initialize();
+      slidesView.querySelectorAll(".slides section li").forEach((item) => {
+        item.classList.add("fragment");
+      });
+      applyCodeLineClasses();
+      if (typeof deck.sync === "function") {
+        deck.sync();
+      }
+      initialized = true;
+    }
+
+    if (!slidesView || !readingView || !presentButton) return;
+
+    const isEditableTarget = (target) => {
+      if (!target) return false;
+      const tag = target.tagName;
+      return tag === "INPUT" || tag === "TEXTAREA" || target.isContentEditable;
+    };
+    function applyCodeLineClasses() {
+      document.querySelectorAll(".highlight pre code").forEach((codeBlock) => {
+        const lines = Array.from(codeBlock.children).filter((child) => child.tagName === "SPAN");
+        if (lines.length === 0) return;
+        const hasHighlightedLines = lines.some((line) => {
+          const style = line.getAttribute("style") || "";
+          return line.classList.contains("hl") || style.includes("background");
+        });
+        if (!hasHighlightedLines) return;
+
+        lines.forEach((line) => {
+          const style = line.getAttribute("style") || "";
+          const highlighted = line.classList.contains("hl") || style.includes("background");
+          line.classList.add("code-line");
+          line.classList.toggle("code-line-highlighted", highlighted);
+          line.classList.toggle("code-line-muted", !highlighted);
+        });
+      });
+    }
+
+    const syncModeHash = (slidesMode) => {
+      if (slidesMode) {
+        if (window.location.hash === "#reading-mode" && deck && typeof deck.getIndices === "function") {
+          const index = deck.getIndices();
+          const vertical = index.v > 0 ? `/${index.v}` : "";
+          window.location.hash = `#/${index.h}${vertical}`;
+        }
+      } else if (window.location.hash !== "#reading-mode") {
+        window.location.hash = "reading-mode";
+      }
+    };
+
+    const setViewMode = (slidesMode) => {
+      showingSlides = slidesMode;
+      root.dataset.talkMode = slidesMode ? "slides" : "reading";
+      slidesView.hidden = !slidesMode;
+      readingView.hidden = slidesMode;
+      if (modeLabel) modeLabel.textContent = slidesMode ? "Slides" : "Reading";
+      if (help) {
+        help.textContent = slidesMode
+          ? "Presentation mode: press Esc for overview, then Esc again to switch to reading mode."
+          : "Reading mode: scroll normally. Use Present to return to slides.";
+      }
+      if (deck && initialized) {
+        deck.configure({
+          keyboard: slidesMode,
+          controls: slidesMode,
+          progress: false,
+          touch: slidesMode
+        });
+        if (slidesMode && typeof deck.layout === "function") {
+          deck.layout();
+        }
+      }
+      if (slidesMode && slidesView) {
+        slidesView.focus({ preventScroll: true });
+      }
+      syncModeHash(slidesMode);
+    };
+
+    setViewMode(window.location.hash === "#reading-mode" ? false : true);
+
+    presentButton.addEventListener("click", () => {
+      setViewMode(true);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (isEditableTarget(event.target)) return;
+      if (!showingSlides || !deck) return;
+      if (event.key === "Escape" && typeof deck.isOverview === "function" && deck.isOverview()) {
+        event.preventDefault();
+        setViewMode(false);
+        return;
+      }
+      if ((event.key === "f" || event.key === "F") && !event.metaKey && !event.ctrlKey && !event.altKey) {
+        event.preventDefault();
+        if (!document.fullscreenElement && slidesView.requestFullscreen) {
+          slidesView.requestFullscreen();
+        } else if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }, true);
+  })();
+</script>
+{{ end }}
