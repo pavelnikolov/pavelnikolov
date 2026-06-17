@@ -2,7 +2,7 @@
 title = "The Go Code You Didn’t Write"
 subtitle = "Day-2 Engineering in a Post-Human Codebase"
 date = "2026-06-14T15:13:00+10:00"
-draft = true
+draft = false
 event = "Sample meetup deck"
 location = "Sydney"
 duration = "30 min"
