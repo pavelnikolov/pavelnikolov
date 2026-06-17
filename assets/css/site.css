@@ -340,6 +340,32 @@ html[data-talk-mode="slides"] .talk-reveal {
   box-shadow: none;
 }
 
+.talk-speaker-footer {
+  position: fixed;
+  left: 3.25rem;
+  bottom: 2rem;
+  z-index: 20;
+  text-align: left;
+  color: rgba(212, 212, 212, 0.64);
+  pointer-events: none;
+}
+
+.talk-speaker-name,
+.talk-speaker-role {
+  display: block;
+}
+
+.talk-speaker-name {
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.talk-speaker-role {
+  margin-top: 0.16rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
 html[data-talk-mode="reading"] body.reveal-viewport {
   overflow: auto !important;
   height: auto !important;

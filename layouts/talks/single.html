@@ -27,6 +27,10 @@
     {{ end }}
   </div>
 </section>
+<div id="talk-speaker-footer" class="talk-speaker-footer" hidden>
+  <span class="talk-speaker-name">Pavel Nikolov</span>
+  <span class="talk-speaker-role">Principal SRE, CBA</span>
+</div>
 
 <article id="talk-reading-view" class="post talk-reading" hidden>
   <div class="content">{{ .Content }}</div>
@@ -42,6 +46,7 @@
     const presentButton = document.getElementById("talk-present-button");
     const help = document.getElementById("talk-help");
     const modeLabel = document.getElementById("talk-mode-label");
+    const speakerFooter = document.getElementById("talk-speaker-footer");
     const root = document.documentElement;
     let showingSlides = true;
     let deck = null;
@@ -96,6 +101,14 @@
         });
       });
     }
+    const syncSpeakerFooter = () => {
+      if (!speakerFooter || !deck || !showingSlides || !initialized) {
+        if (speakerFooter) speakerFooter.hidden = true;
+        return;
+      }
+      const { h, v } = deck.getIndices();
+      speakerFooter.hidden = !(h === 0 && v === 0);
+    };
 
     const syncModeHash = (slidesMode) => {
       if (slidesMode) {
@@ -134,6 +147,7 @@
       if (slidesMode && slidesView) {
         slidesView.focus({ preventScroll: true });
       }
+      syncSpeakerFooter();
       syncModeHash(slidesMode);
     };
 
@@ -142,6 +156,10 @@
     presentButton.addEventListener("click", () => {
       setViewMode(true);
     });
+    if (deck && typeof deck.on === "function") {
+      deck.on("ready", syncSpeakerFooter);
+      deck.on("slidechanged", syncSpeakerFooter);
+    }
 
     document.addEventListener("keydown", (event) => {
       if (isEditableTarget(event.target)) return;
