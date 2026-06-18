@@ -164,7 +164,7 @@ if _, ok := exits[u.ID]; ok {
 
 ```go {.fragment}
 // BAD.
-var customerInvoice billing.Invoice
+var customerInvoiceResult billing.Invoice
 ```
 ```go {.fragment}
 // GOOD.
@@ -185,7 +185,7 @@ var inv billing.Invoice
 
 ## Systems thinking
 - think of your project as a system of components
-- define your domain domain types in the root of your repo (library)
+- define your domain types in the root of your repo (library)
 - design your architecture before writing any code
 - think about failure modes
 - identify business rules
