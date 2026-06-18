@@ -155,7 +155,7 @@ users := map[string]User{}
 ```go {.fragment}
 // BETTER.
 exists := map[string]User{}
-if _, ok := exits[u.ID]; ok {
+if _, ok := exists[u.ID]; ok {
 ```
 
 ~~~~
