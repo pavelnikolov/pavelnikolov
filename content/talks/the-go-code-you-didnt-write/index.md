@@ -60,7 +60,7 @@ Day-2 Engineering in a Post-Human Codebase
 - Tech debt
 - Spaghetti code
 - (Lack of) readability
-- Congnitive load
+- Cognitive load
 
 ---
 
@@ -72,7 +72,7 @@ Day-2 Engineering in a Post-Human Codebase
 
 ## AI Writes It. You Sign It.
 
-- You can delegate the wriging of the code
+- You can delegate the writing of the code
 - You can **NOT** delegate the **ownership**
 
 ---
@@ -192,7 +192,7 @@ var inv billing.Invoice
 
 ~~~~
 
-## Imagine you have to design and  building an e-commerce app
+## Imagine you have to design and build an e-commerce app
 - Should be accessible on web, tablet, phone, voice and MCP.
 - Allow users to navigate products, add to cart, checkout.
 - Allow admin to add products, categories, sale events.
@@ -209,7 +209,7 @@ var inv billing.Invoice
 
 ## Don't skip design phase
 - Design helps you avoid complexity
-- Design descisions live in your repo
+- Design decisions live in your repo
 
 ~~~~
 
@@ -271,7 +271,7 @@ func (s Service) BlackFridaySaleProducts(ctx context.Context) ([]Product, error)
 
 ## Deep modules
 
-from **Phylosophy of Software Design** by John Osterhout
+from **Philosophy of Software Design** by John Osterhout
 
 ~~~~
 
@@ -344,7 +344,7 @@ func TestService_Product(t *testing.T) {
   type test struct{}
   tests := []test{}
   for _, tt := range tests {
-    t.Run(tt.name, testing.T) {
+    t.Run(tt.name, func(t *testing.T) {
       svc := products.NewService(tt.db)
       got, err := svc.Product(t.Context(), tt.id)
       // handle error
@@ -361,7 +361,16 @@ func TestService_Product(t *testing.T) {
 ## Design your interfaces
 - Make your interfaces as generic as possible
 - With API surface as narrow as possible
+- Defining your interface is faster than typing your promot
 
+---
+
+## Line of sight
+- avoid unnecessary indentation
+- every indented code is error handling
+- avoid `else` keyword
+- prefer `siwtch` to many `else if` statements
+- happy path is last
 ---
 
 ## (Avoid) Dependencies
@@ -377,7 +386,7 @@ func TestService_Product(t *testing.T) {
 ~~~~
 
 ## Some dependencies are good
-- Only evert import them from one package
+- Only ever import them from one package
 - Don't leak dependency types outside of that package
 ~~~~
 
@@ -390,7 +399,7 @@ type Client struct {
 	// fields
 }
 
-func (c *Client) Eabled(ctx Context, name string, def bool) bool {
+func (c *Client) Enabled(ctx Context, name string, def bool) bool {
 	//impl
 }
 ````
@@ -402,7 +411,7 @@ func (c *Client) Eabled(ctx Context, name string, def bool) bool {
 Interface is declared by the consumer.
 ```go
 type FeatureToggle interface {
-  Eabled(ctx context.Context, feature string, def bool) bool
+  Enabled(ctx context.Context, feature string, def bool) bool
 }
 ```
 
