@@ -271,7 +271,7 @@ func (s Service) BlackFridaySaleProducts(ctx context.Context) ([]Product, error)
 
 ## Deep modules
 
-from **Philosophy of Software Design** by John Osterhout
+from **Philosophy of Software Design** by John Ousterhout
 
 ~~~~
 
