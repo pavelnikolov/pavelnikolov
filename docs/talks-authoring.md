@@ -14,13 +14,44 @@ This creates a leaf bundle so you can keep slides, images, and code samples toge
 
 ## Slide authoring
 
-In a talk `index.md`, separate slides with:
+In a talk `index.md`, separate horizontal slides with:
 
 ```md
 ---
 ```
 
 Each chunk becomes one Reveal.js slide.
+
+### Vertical slides
+
+To add vertical slides (revealed by pressing down arrow), separate them with:
+
+```md
+~~~~
+```
+
+Example:
+
+```md
+## Main Slide
+Content here
+
+~~~~
+
+### Sub-slide 1
+Details
+
+~~~~
+
+### Sub-slide 2
+More details
+
+---
+
+## Next horizontal slide
+```
+
+In this example, pressing right navigates to the next horizontal slide, while pressing down reveals the vertical slides beneath the first one.
 
 ## Code highlighting
 
@@ -65,7 +96,7 @@ Open the talk page and use the built-in view toggle:
 - In reading mode, content follows your normal website light/dark theme.
 
 Slide controls:
-- Keyboard: `←` / `→` / `PageUp` / `PageDown` / `Space`
+- Keyboard: `←` / `→` / `PageUp` / `PageDown` / `Space` (use ↓ to navigate vertical slides)
 - Fullscreen: `F`
 - Reading mode entry: press `Esc` for slide overview, then press `Esc` again
 - Share reading mode URL with `#reading-mode`

@@ -19,11 +19,26 @@
 </section>
 
 <section id="talk-slides-view" class="reveal talk-reveal" tabindex="0">
+  <div id="talk-speaker-footer" class="talk-speaker-footer" hidden>
+    <span class="talk-speaker-name">Pavel Nikolov</span>
+    <span class="talk-speaker-role">Principal SRE, CBA</span>
+  </div>
   <div class="slides">
     {{ range $slideChunks }}
-    <section>
-      {{ $.RenderString (dict "display" "block") . }}
-    </section>
+      {{ $verticalSlides := split . "\n~~~~\n" }}
+      {{ if ge (len $verticalSlides) 2 }}
+        <section>
+          {{ range $verticalSlides }}
+          <section>
+            {{ $.RenderString (dict "display" "block") . }}
+          </section>
+          {{ end }}
+        </section>
+      {{ else }}
+        <section>
+          {{ $.RenderString (dict "display" "block") . }}
+        </section>
+      {{ end }}
     {{ end }}
   </div>
 </section>
@@ -42,6 +57,7 @@
     const presentButton = document.getElementById("talk-present-button");
     const help = document.getElementById("talk-help");
     const modeLabel = document.getElementById("talk-mode-label");
+    const speakerFooter = document.getElementById("talk-speaker-footer");
     const root = document.documentElement;
     let showingSlides = true;
     let deck = null;
@@ -60,8 +76,17 @@
     if (window.Reveal && slidesView) {
       deck = new window.Reveal(slidesView, revealOptions);
       await deck.initialize();
-      slidesView.querySelectorAll(".slides section li").forEach((item) => {
-        item.classList.add("fragment");
+      slidesView.querySelectorAll(".slides section").forEach((section) => {
+        if (section.querySelector("section")) return; // skip parent containers
+        // Auto-fragment li; p only if explicitly marked .fragment in markdown
+        section.querySelectorAll("li").forEach((item) => item.classList.add("fragment"));
+        // Apply fade-in-then-semi-out to all but the last fragment in DOM order
+        const items = Array.from(section.querySelectorAll(".fragment"));
+        items.forEach((item, i) => {
+          if (i < items.length - 1) {
+            item.classList.add("fade-in-then-semi-out");
+          }
+        });
       });
       applyCodeLineClasses();
       if (typeof deck.sync === "function") {
@@ -96,6 +121,12 @@
         });
       });
     }
+    const syncSpeakerFooter = () => {
+      if (!speakerFooter || !deck || !initialized) return;
+      const { h, v } = deck.getIndices();
+      const isFirstSlide = h === 0 && v === 0;
+      speakerFooter.hidden = !isFirstSlide;
+    };
 
     const syncModeHash = (slidesMode) => {
       if (slidesMode) {
@@ -134,6 +165,7 @@
       if (slidesMode && slidesView) {
         slidesView.focus({ preventScroll: true });
       }
+      syncSpeakerFooter();
       syncModeHash(slidesMode);
     };
 
@@ -142,6 +174,10 @@
     presentButton.addEventListener("click", () => {
       setViewMode(true);
     });
+    if (deck && typeof deck.on === "function") {
+      deck.on("ready", syncSpeakerFooter);
+      deck.on("slidechanged", syncSpeakerFooter);
+    }
 
     document.addEventListener("keydown", (event) => {
       if (isEditableTarget(event.target)) return;

@@ -1,9 +1,0 @@
-{{- $src := .Get "src" -}}
-{{- $lang := .Get "lang" | default "text" -}}
-{{- $opts := .Get "options" | default "" -}}
-{{- $res := .Page.Resources.GetMatch $src -}}
-{{- if not $res -}}
-  {{- errorf "talk-code shortcode: resource %q not found in %s" $src .Page.File.Path -}}
-{{- else -}}
-  {{- highlight $res.Content $lang $opts -}}
-{{- end -}}
