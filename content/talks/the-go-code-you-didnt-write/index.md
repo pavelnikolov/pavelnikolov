@@ -296,7 +296,7 @@ from **Philosophy of Software Design** by John Osterhout
 ~~~~
 
 ## Q: What is common between
-- Mens shoes
+- Men's shoes
 - Kids t-shirts
 - Christmas sale
 - Related products
@@ -361,7 +361,7 @@ func TestService_Product(t *testing.T) {
 ## Design your interfaces
 - Make your interfaces as generic as possible
 - With API surface as narrow as possible
-- Defining your interface is faster than typing your promot
+- Defining your interface is faster than typing your prompt
 
 ---
 
@@ -369,7 +369,7 @@ func TestService_Product(t *testing.T) {
 - avoid unnecessary indentation
 - every indented code is error handling
 - avoid `else` keyword
-- prefer `siwtch` to many `else if` statements
+- prefer `switch` to many `else if` statements
 - happy path is last
 ---
 
@@ -402,7 +402,7 @@ type Client struct {
 func (c *Client) Enabled(ctx Context, name string, def bool) bool {
 	//impl
 }
-````
+```
 
 ~~~~
 
@@ -431,11 +431,13 @@ func MyFunc(ctx context.Context, ft FeatureToggle) {
 
 ---
 
-#### Go review checklist for generated code
+### Go review checklist for generated code
 
 - Is the code readable
 - Does it increase complexity
 - Is there room for refactoring (shallow -> deep module)
+
+---
 
 ## Managing tech debt
 
@@ -450,7 +452,6 @@ func MyFunc(ctx context.Context, ft FeatureToggle) {
 - Unfortunately, same applies when used incorrectly
 
 ---
-
 
 ## (Go) Engineering Fundamentals have never been more relevant.
 
