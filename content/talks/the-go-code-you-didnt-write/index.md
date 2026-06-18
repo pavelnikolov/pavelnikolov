@@ -192,7 +192,7 @@ var inv billing.Invoice
 
 ~~~~
 
-## Imagine building an e-commerce app
+## Imagine you have to design and  building an e-commerce app
 - Should be accessible on web, tablet, phone, voice and MCP.
 - Allow users to navigate products, add to cart, checkout.
 - Allow admin to add products, categories, sale events.
