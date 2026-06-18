@@ -123,6 +123,7 @@ It doesn't address complexity, tech debt and readability.
 - `regexp` - Doesn't steal `regex` var name
 
 ~~~~
+
 ## Don't repeat the pkg name
 
 ```go 
@@ -339,6 +340,7 @@ Product interface still doesn't need any refactoring.
 - Fast feedback loop for AI agents
 
 ~~~~
+
 ```go  {hl_lines=["7-11"]}
 func TestService_Product(t *testing.T) {
   type test struct{}
@@ -354,8 +356,8 @@ func TestService_Product(t *testing.T) {
     }
   }
 }
-
 ```
+
 ---
 
 ## Design your interfaces
@@ -371,6 +373,44 @@ func TestService_Product(t *testing.T) {
 - avoid `else` keyword
 - prefer `switch` to many `else if` statements
 - happy path is last
+
+~~~~
+
+```go
+// BAD.
+if authorizationHeader != "" {
+    if len(bearerToken) != 2 {
+        // nested happy path
+    }
+    // error handling here
+}
+// error handling here
+```
+
+~~~~
+
+```go
+// GOOD.
+if authorizationHeader == "" {
+    return errors.New("missing header")
+}
+if len(bearerToken) == 2 {
+    return errors.New("invalid token")
+}
+
+// Core logic follows here at minimum indentation
+
+return nil
+```
+
+~~~~
+
+## Else statement - avoid it
+
+> In the Go libraries, you'll find that when an if statement doesn't flow into the next statement—that is, the body ends in break, continue, goto, or return—the unnecessary else is omitted.
+
+_Effective Go_
+
 ---
 
 ## (Avoid) Dependencies
@@ -379,6 +419,7 @@ func TestService_Product(t *testing.T) {
 - More dependencies = increased cognitive load + more tokens
 
 ~~~~
+
 ## For each dependency
 - Ask - can the stdlib do that
 - If yes - delete the dep
@@ -388,6 +429,7 @@ func TestService_Product(t *testing.T) {
 ## Some dependencies are good
 - Only ever import them from one package
 - Don't leak dependency types outside of that package
+
 ~~~~
 
 ## Example - feature toggle
