@@ -76,8 +76,17 @@
     if (window.Reveal && slidesView) {
       deck = new window.Reveal(slidesView, revealOptions);
       await deck.initialize();
-      slidesView.querySelectorAll(".slides section li, .slides section p").forEach((item) => {
-        item.classList.add("fragment", "fade-in-then-semi-out");
+      slidesView.querySelectorAll(".slides section").forEach((section) => {
+        if (section.querySelector("section")) return; // skip parent containers
+        // Auto-fragment li; p only if explicitly marked .fragment in markdown
+        section.querySelectorAll("li").forEach((item) => item.classList.add("fragment"));
+        // Apply fade-in-then-semi-out to all but the last fragment in DOM order
+        const items = Array.from(section.querySelectorAll(".fragment"));
+        items.forEach((item, i) => {
+          if (i < items.length - 1) {
+            item.classList.add("fade-in-then-semi-out");
+          }
+        });
       });
       applyCodeLineClasses();
       if (typeof deck.sync === "function") {

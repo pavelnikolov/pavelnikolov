@@ -9,6 +9,8 @@ enableRobotsTXT = true
 [markup]
   [markup.highlight]
     noClasses = false
+  [markup.goldmark.parser.attribute]
+    block = true
 
 [menu]
 	[[menu.main]]
