@@ -168,6 +168,10 @@ var customerInvoice billing.Invoice
 ```
 ```go {.fragment}
 // GOOD.
+var invoice billing.Invoice
+```
+```go {.fragment}
+// BETTER.
 var inv billing.Invoice
 ```
 
